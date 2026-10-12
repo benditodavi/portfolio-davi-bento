@@ -1,1 +1,337 @@
-/* estilo.css — Portfólio Davi Bento (o visual completo entra na Tarefa 3) */
+/* ==========================================================
+   estilo.css — Portfólio Davi Bento
+   ========================================================== */
+
+/* 1. Variáveis: cores e medidas usadas no site todo */
+:root {
+  --cor-fundo: #f6f7fb;
+  --cor-cartao: #ffffff;
+  --cor-texto: #1f2933;
+  --cor-suave: #5f6b7a;
+  --cor-borda: #dde2ea;
+  --cor-destaque: #0f766e;
+  --cor-destaque-escura: #0b5852;
+  --cor-erro: #b42318;
+  --cor-sucesso: #15803d;
+  --largura-maxima: 960px;
+  --altura-topo: 72px;          /* altura do menu fixo */
+}
+
+/* 2. Base */
+* {
+  box-sizing: border-box;       /* padding e borda contam dentro do width */
+}
+
+html {
+  scroll-behavior: smooth;      /* rolagem suave ao clicar no menu */
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+}
+
+a {
+  color: var(--cor-destaque);
+}
+
+img {
+  max-width: 100%;              /* imagens nunca passam da largura disponível */
+  height: auto;
+}
+
+/* 3. Cabeçalho fixo com o menu (Flexbox) */
+.topo {
+  position: sticky;             /* gruda no topo ao rolar a página */
+  top: 0;
+  z-index: 10;                  /* fica por cima das seções */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-height: var(--altura-topo);
+  padding: 8px 24px;
+  background-color: var(--cor-cartao);
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.marca {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;              /* em telas estreitas os links quebram linha */
+  gap: 4px;
+  list-style-type: none;        /* tira as bolinhas da lista */
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  display: block;               /* a área toda do link fica clicável */
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: var(--cor-texto);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu a:focus {
+  background-color: var(--cor-destaque);
+  color: #ffffff;
+}
+
+/* 4. Seções */
+main {
+  max-width: var(--largura-maxima);
+  margin: 0 auto;               /* centraliza o conteúdo */
+  padding: 0 24px;
+}
+
+.secao {
+  padding: 56px 0;
+  border-bottom: 1px solid var(--cor-borda);
+  scroll-margin-top: var(--altura-topo);  /* o título não fica escondido atrás do menu fixo */
+}
+
+.secao:last-child {
+  border-bottom: none;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  line-height: 1.2;
+}
+
+h2 {
+  margin: 0 0 16px;
+  font-size: 1.8rem;
+  color: var(--cor-destaque-escura);
+}
+
+h3 {
+  margin: 24px 0 8px;
+  font-size: 1.15rem;
+}
+
+.subtitulo {
+  margin: 4px 0 0;
+  font-size: 1.15rem;
+  color: var(--cor-suave);
+}
+
+/* 5. Sobre mim */
+.apresentacao {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.foto {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;           /* imagem quadrada vira círculo */
+  object-fit: cover;
+  border: 4px solid var(--cor-cartao);
+  box-shadow: 0 2px 8px rgba(31, 41, 51, 0.15);
+}
+
+/* Lista de "etiquetas": hobbies e tecnologias */
+.lista-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style-type: none;
+  margin: 8px 0;
+  padding: 0;
+}
+
+.lista-tags li {
+  padding: 4px 12px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  background-color: var(--cor-cartao);
+  font-size: 0.9rem;
+}
+
+/* 6. Formação */
+.item-formacao {
+  margin-bottom: 12px;
+  padding: 16px 20px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  background-color: var(--cor-cartao);
+}
+
+.item-formacao h3 {
+  margin-top: 0;
+}
+
+.item-formacao ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.periodo {
+  margin: 0;
+  color: var(--cor-suave);
+}
+
+/* 7. Portfólio: cards em Grid (quantas colunas couberem, mínimo 260px cada) */
+.projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.projeto {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  background-color: var(--cor-cartao);
+}
+
+.projeto h3,
+.projeto p {
+  margin: 0;
+}
+
+.acao {
+  margin-top: auto;             /* empurra o rodapé do card para baixo */
+  font-weight: 600;
+}
+
+.privado {
+  color: var(--cor-suave);
+  font-size: 0.9rem;
+}
+
+/* 8. Contato */
+.formulario {
+  display: grid;
+  gap: 8px;
+  max-width: 520px;
+}
+
+.formulario label {
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.formulario input,
+.formulario textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--cor-texto);
+  background-color: var(--cor-cartao);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+  outline: 2px solid var(--cor-destaque);
+  border-color: var(--cor-destaque);
+}
+
+.formulario button {
+  justify-self: start;
+  margin-top: 12px;
+  padding: 10px 22px;
+  font: inherit;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--cor-destaque);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.formulario button:hover {
+  background-color: var(--cor-destaque-escura);
+}
+
+/* Mensagem de retorno do formulário (preenchida pelo script.js) */
+.aviso {
+  min-height: 1.6em;
+  margin: 8px 0 0;
+  font-weight: 600;
+}
+
+.aviso.erro {
+  color: var(--cor-erro);
+}
+
+.aviso.sucesso {
+  color: var(--cor-sucesso);
+}
+
+.outros-contatos {
+  margin-top: 32px;
+  padding-left: 20px;
+}
+
+/* 9. Rodapé */
+.rodape {
+  padding: 24px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--cor-suave);
+  background-color: var(--cor-cartao);
+  border-top: 1px solid var(--cor-borda);
+}
+
+.rodape p {
+  margin: 0;
+}
+
+/* 10. Celular: telas de até 600px (media query) */
+@media (max-width: 600px) {
+  :root {
+    --altura-topo: 124px;       /* espaço reservado acima dos títulos ao clicar no menu */
+  }
+
+  .topo {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    min-height: 0;              /* a altura acompanha o conteúdo (1 ou 2 linhas de menu) */
+    padding: 8px 12px;
+  }
+
+  .menu {
+    justify-content: space-between;
+  }
+
+  .menu a {
+    padding: 6px 8px;
+    font-size: 0.92rem;
+  }
+
+  main {
+    padding: 0 16px;
+  }
+
+  .secao {
+    padding: 40px 0;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}

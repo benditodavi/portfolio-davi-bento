@@ -9,6 +9,7 @@
   --cor-texto: #1f2933;
   --cor-suave: #5f6b7a;
   --cor-borda: #dde2ea;
+  --cor-borda-campo: #868f9c;   /* borda dos campos: contraste mínimo de 3:1 */
   --cor-destaque: #0f766e;
   --cor-destaque-escura: #0b5852;
   --cor-erro: #b42318;
@@ -220,6 +221,10 @@ h3 {
   font-size: 0.9rem;
 }
 
+.mais-projetos {
+  margin-top: 24px;
+}
+
 /* 8. Contato */
 .formulario {
   display: grid;
@@ -239,7 +244,7 @@ h3 {
   font: inherit;
   color: var(--cor-texto);
   background-color: var(--cor-cartao);
-  border: 1px solid var(--cor-borda);
+  border: 1px solid var(--cor-borda-campo);
   border-radius: 8px;
 }
 

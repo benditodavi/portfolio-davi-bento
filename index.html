@@ -25,20 +25,126 @@
 
   <main>
     <!-- Cada seção tem um id; o menu leva até ela pela âncora (#id) -->
+
+    <!-- ===== SOBRE MIM ===== -->
     <section id="sobre" class="secao">
+      <div class="apresentacao">
+        <img class="foto" src="imagens/foto.jpg" alt="Foto de Davi Bento">
+        <div>
+          <h1>Davi Bento</h1>
+          <p class="subtitulo">Estudante de Análise e Desenvolvimento de Sistemas</p>
+        </div>
+      </div>
       <h2>Sobre mim</h2>
+      <p>«apresentação em 3–4 frases»</p>
+      <p><strong>Cidade:</strong> «cidade – UF»</p>
+      <h3>Hobbies</h3>
+      <!-- Lista não ordenada: a ordem dos hobbies não importa -->
+      <ul class="lista-tags">
+        <li>«hobby 1»</li>
+        <li>«hobby 2»</li>
+        <li>«hobby 3»</li>
+      </ul>
     </section>
 
+    <!-- ===== FORMAÇÃO ===== -->
     <section id="formacao" class="secao">
       <h2>Formação</h2>
+
+      <article class="item-formacao">
+        <h3>Análise e Desenvolvimento de Sistemas</h3>
+        <p class="periodo">Centro Universitário Internacional Uninter · EAD · «semestre»º semestre · conclusão prevista em «mês/ano»</p>
+      </article>
+
+      <article class="item-formacao">
+        <h3>Cursos livres</h3>
+        <ul>
+          <li>«curso 1 — instituição, ano»</li>
+          <li>«curso 2 — instituição, ano»</li>
+        </ul>
+      </article>
+
+      <article class="item-formacao">
+        <h3>Idiomas</h3>
+        <ul>
+          <li>Português — nativo</li>
+          <li>«idioma — nível»</li>
+        </ul>
+      </article>
     </section>
 
+    <!-- ===== PORTFÓLIO ===== -->
     <section id="portfolio" class="secao">
       <h2>Portfólio</h2>
+      <p>Alguns trabalhos que desenvolvi.</p>
+
+      <!-- Os cards ficam lado a lado com CSS Grid -->
+      <div class="projetos">
+        <article class="projeto">
+          <h3>Catálogo de produtos (projeto para cliente)</h3>
+          <p>Catálogo online com painel administrativo. API em Ruby on Rails 8 com PostgreSQL (produtos, variantes, SKUs, categorias, usuários administradores e log de auditoria) e front-end em Next.js 16 com TypeScript (vitrine, categorias, carrinho e área administrativa).</p>
+          <ul class="lista-tags">
+            <li>Ruby on Rails</li>
+            <li>PostgreSQL</li>
+            <li>Next.js</li>
+            <li>TypeScript</li>
+          </ul>
+          <p class="acao privado">Código privado</p>
+        </article>
+
+        <article class="projeto">
+          <h3>Interview Copilot</h3>
+          <p>Aplicativo desktop para Linux que captura o áudio do sistema, transcreve falas em inglês em tempo real e sugere respostas a partir de um perfil pessoal escrito em Markdown.</p>
+          <ul class="lista-tags">
+            <li>JavaScript</li>
+            <li>Node.js</li>
+            <li>Electron</li>
+          </ul>
+          <p class="acao privado">Código privado</p>
+        </article>
+
+        <article class="projeto">
+          <h3>Este portfólio</h3>
+          <p>Currículo online em página única, feito com HTML5, CSS3 e JavaScript puros, sem frameworks. Inclui formulário de contato com validação em JavaScript.</p>
+          <ul class="lista-tags">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+          </ul>
+          <p class="acao"><a href="https://github.com/benditodavi/portfolio-davi-bento" target="_blank" rel="noopener">Ver o código no GitHub</a></p>
+        </article>
+      </div>
     </section>
 
+    <!-- ===== CONTATO ===== -->
     <section id="contato" class="secao">
       <h2>Contato</h2>
+      <p>Envie uma mensagem pelo formulário abaixo.</p>
+
+      <!-- novalidate: desliga a validação automática do navegador,
+           porque quem valida é o nosso JavaScript (js/script.js) -->
+      <form id="form-contato" class="formulario" novalidate>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" autocomplete="name">
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" autocomplete="email">
+
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+
+        <button type="submit">Enviar mensagem</button>
+
+        <!-- Aqui o JavaScript escreve o erro ou a confirmação.
+             aria-live faz leitores de tela anunciarem a mensagem. -->
+        <p id="aviso" class="aviso" aria-live="polite"></p>
+      </form>
+
+      <ul class="outros-contatos">
+        <li>GitHub: <a href="https://github.com/benditodavi" target="_blank" rel="noopener">github.com/benditodavi</a></li>
+        <li>LinkedIn: <a href="«url do LinkedIn»" target="_blank" rel="noopener">«linkedin.com/in/…»</a></li>
+        <li>E-mail: <a href="mailto:«e-mail»">«e-mail»</a></li>
+      </ul>
     </section>
   </main>
 
